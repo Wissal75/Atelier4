@@ -1,0 +1,19 @@
+<h1>Players List</h1>
+<table border='1'>
+<tr>
+<th> id</th>
+<th> Username </th>
+<th> Email</th>
+<th> Action</th>
+</tr>
+<tr>
+<tr> {% for i in response %} </tr>
+<td> {{i.id}}</td>
+<td> {{i.Username}}</td>
+<td> {{i.Email}}</td>
+<td> <a href="{{path('edit',{'id' :i.id})}}">Modifier</a> </td>
+<td> <a href="{{path('remove',{'id' :i.id})}}">supprimer</a> </td>
+{% endfor %}
+</tr>
+</table>
+<a href="{{path('add')}}">Ajouter</a>

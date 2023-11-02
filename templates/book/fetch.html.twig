@@ -1,0 +1,31 @@
+<h1>List of Books</h1>
+<table border='1'>
+<tr>
+<th> Title</th>
+<th> Publication date </th>
+<th> Published</th>
+<th> Category</th>
+<th> Author</th>
+<th> Action</th>
+</tr>
+<tr>
+<tr> {% for b in response %} </tr>
+<td> {{b.title}}</td>
+<td> {{b.publicationDate|date('Y-m-d')}}</td>
+<td> {{b.published}}</td>
+<td> {{b.category}}</td>
+<td> {{b.Authors}}</td>
+<td> <a href="{{path('edit',{'ref' :b.Ref})}}">edit</a> </td>
+<td> <a href="{{path('delete',{'ref' :b.Ref})}}">delete</a> </td>
+<td> <a href="{{path('show',{'ref' :b.Ref})}}">show</a> </td>
+{% endfor %}
+</tr>
+</table>
+{% if response > 0 %}
+ {% set publishedBooks = response|filter(response => response.published == true) %}
+    {% set unpublishedBooks = response|filter(response => response.published == false) %}
+    
+    <h3>Published books: {{ publishedBooks|length }}</h3>
+    <h3>Unpublished books: {{ unpublishedBooks|length }}</h3>
+{%endif%}
+<a href="{{path('addB')}}">create new</a>

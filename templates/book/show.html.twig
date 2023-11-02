@@ -1,0 +1,8 @@
+<h1>Détails </h1>
+    <p><strong>Titre:</strong> {{ response.title }}</p>
+    <p><strong>Auteur:</strong> {{ response.authors }}</p>
+    <p><strong>Catégorie:</strong> {{ response.category }}</p>
+    <p><strong>Date de publication:</strong> {{ response.publicationDate ? response.publicationDate|date('Y-m-d') : 'Non définie' }}</p>
+    <a href="{{path('fetch')}}">Go back</a>
+   
+    
